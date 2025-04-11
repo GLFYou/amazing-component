@@ -1,27 +1,36 @@
 <template>
   <div class="test-wrap w-[100vw] mt-[5vh] p-[5vw]">
-    <input type="file" accept="image/*" id="fileInput" @change="fileChange" />
-    <canvas ref="canvasRef" class="border w-[50vw]"></canvas>
-    <button @click="compress">压缩</button>
+    <div><img src="/" alt="" /></div>
+    <!-- <ErButton /> -->
   </div>
 </template>
 <script setup>
 import { onMounted, ref } from 'vue'
+// import { ErButton } from 'toy-element2'
+// import { ErButton } from '@eric-ui'
+
 const canvasRef = ref(null)
 const img = ref(null)
 onMounted(() => {
   init()
 })
 const init = () => {
-  const throttle = (fn, delay) => {
-    let timer = null
-    return function (...args) {
-      if (timer) clearTimeout(timer)
-      timer = setTimeout(() => {
-        fn(...args)
-      }, delay)
-    }
+  const res = encode({
+    phone: '13657223213',
+    real_name: '李林康',
+    work_card: 'KK99054',
+    redirect: '/home/chat/g/4d1760b4-c6ce-41f2-b837-7ecbf5a40527/s'
+  })
+
+  console.log('res', res)
+}
+
+const encode = (obj) => {
+  for (const key in obj) {
+    obj[key] = window.btoa(encodeURIComponent(obj[key]))
   }
+  const str = `http://localhost:3000/eipLogin?phone=${obj.phone ?? ''}&real_name=${obj.real_name ?? ''}&work_card=${obj.work_card ?? ''}&redirect=${obj.redirect ?? ''}`
+  return str
 }
 </script>
 

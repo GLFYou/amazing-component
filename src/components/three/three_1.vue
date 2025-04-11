@@ -11,6 +11,17 @@ import createThree, { download } from './components/blendingColor.js'
 onMounted(() => {
   createThree()
 })
+
+const obj = {
+  sayThis: () => {
+    console.log(this)
+    delay(3000)
+  }
+  // sayThis: function () {
+  //   console.log(this)
+  // }
+}
+obj.sayThis()
 </script>
 
 <style lang="scss" scoped>
