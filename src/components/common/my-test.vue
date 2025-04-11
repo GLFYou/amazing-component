@@ -13,6 +13,7 @@ const canvasRef = ref(null)
 const img = ref(null)
 onMounted(() => {
   init()
+  console.log('dev分支修改')
 })
 const init = () => {
   const res = encode({
