@@ -54,7 +54,7 @@ const create3d = () => {
 }
 onMounted(() => {
   create3d()
-  console.log('master分支修改')
+  console.log('修改2')
 })
 </script>
 
