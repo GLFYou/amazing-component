@@ -9,29 +9,34 @@ import { onMounted, ref } from 'vue'
 // import { ErButton } from 'toy-element2'
 // import { ErButton } from '@eric-ui'
 
-const canvasRef = ref(null)
-const img = ref(null)
-onMounted(() => {
-  init()
-})
-const init = () => {
-  const res = encode({
-    phone: '13657223213',
-    real_name: '李林康',
-    work_card: 'KK99054',
-    redirect: '/home/chat/g/4d1760b4-c6ce-41f2-b837-7ecbf5a40527/s'
-  })
+console.log(navigator.userAgent)
 
-  console.log('res', res)
-}
+// const canvasRef = ref(null)
+// const img = ref(null)
+// onMounted(() => {
+//   init()
+//   console.log('修改1')
+//   const arr = Array.from({ length: 10 }, (_, index) => index)
+//   console.log('arr', arr)
+// })
+// const init = () => {
+//   const res = encode({
+//     phone: '13657223213',
+//     real_name: '李林康',
+//     work_card: 'KK99054',
+//     redirect: '/home/chat/g/4d1760b4-c6ce-41f2-b837-7ecbf5a40527/s'
+//   })
 
-const encode = (obj) => {
-  for (const key in obj) {
-    obj[key] = window.btoa(encodeURIComponent(obj[key]))
-  }
-  const str = `http://localhost:3000/eipLogin?phone=${obj.phone ?? ''}&real_name=${obj.real_name ?? ''}&work_card=${obj.work_card ?? ''}&redirect=${obj.redirect ?? ''}`
-  return str
-}
+//   console.log('res', res)
+// }
+
+// const encode = (obj) => {
+//   for (const key in obj) {
+//     obj[key] = window.btoa(encodeURIComponent(obj[key]))
+//   }
+//   const str = `http://172.19.4.173/eipLogin?phone=${obj.phone ?? ''}&real_name=${obj.real_name ?? ''}&work_card=${obj.work_card ?? ''}&redirect=${obj.redirect ?? ''}`
+//   return str
+// }
 </script>
 
 <style lang="scss" scoped>
